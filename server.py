@@ -9,6 +9,9 @@ def sent_detector():
 
     # Pass the text to the emotion_detector function and store the response
     emotions = emotion_detector(text_to_analyze)
+    
+    if emotions['dominant_emotion'] is None:
+        return 'Invalid text! Please try again!'
 
     return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {} and 'sadness': {}. The dominant emotion is {}.".format(
         emotions['anger'],
